@@ -1,0 +1,23 @@
+# Intentionally failing CI workflow for demo purposes.
+# Push a commit that breaks a test → this workflow fails →
+# the Auto-Heal webhook fires → the agent fixes it.
+
+name: CI
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install pytest
+
+      - name: Run tests
+        run: pytest tests/ -v
