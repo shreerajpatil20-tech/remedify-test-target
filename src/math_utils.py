@@ -5,7 +5,7 @@ Intentionally introduce a bug here (change + to -) to trigger CI failure.
 
 
 def add(a: int, b: int) -> int:
-    return a + b
+    return a - b  # BUG
 
 
 def subtract(a: int, b: int) -> int:
